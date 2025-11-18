@@ -10,7 +10,7 @@
   <style>
     /* ===== MODERN SAITAMA PORTFOLIO STYLES ===== */
     :root {
-      --bg: #3b3bbc;
+      --bg: #3b7ebc;
       --text: #2d2b3a;
       --accent: #ff4757;
       --card-bg: #ffffff;
@@ -215,8 +215,8 @@
 <style>
     #contactBtn {
         position: absolute;
-        left: 1300px;
-        top: 700px;
+        left: 1250px;
+        top: 725px;
         padding: 10px 20px;
         background: red;
         color: white;
@@ -252,16 +252,17 @@
 
 
 
-<button id="contactBtn">Contact Me (Real)</button>
-<button id="surrenderBtn">Surrender</button>
+<button id="contactBtn">📧 Contact Me (Real)</button>
+<button id="surrenderBtn"> 🏳️</button>
 
 <script>
 const btn = document.getElementById("contactBtn");
-const safeDistance = 120;   // how close mouse needs to be to trigger movement
-const speed = 60;           // how far the button jumps away
+const surrenderBtn = document.getElementById("surrenderBtn");
+const safeDistance = 120;
+const speed = 60;
+let surrenderShown = false;
 
 document.addEventListener("mousemove", (e) => {
-
     const rect = btn.getBoundingClientRect();
     const btnX = rect.left + rect.width / 2;
     const btnY = rect.top + rect.height / 2;
@@ -277,7 +278,6 @@ document.addEventListener("mousemove", (e) => {
         const w = window.innerWidth;
         const h = window.innerHeight;
 
-        // TELEPORT AT EDGES
         if (newLeft < 0) newLeft = w - rect.width;
         if (newLeft + rect.width > w) newLeft = 0;
         if (newTop < 0) newTop = h - rect.height;
@@ -285,19 +285,24 @@ document.addEventListener("mousemove", (e) => {
 
         btn.style.left = newLeft + "px";
         btn.style.top = newTop + "px";
+
+        if (!surrenderShown) {
+            surrenderBtn.style.display = 'block';
+            surrenderShown = true;
+        }
     }
 });
 
-      surrenderBtn.addEventListener('click', () => {
-        // Replace surrender button text with email (or show modal)
-        surrenderBtn.textContent = 'Email: 57443@shenzhen.qsi.org';
-        // Also set modal email so both places match (optional)
-        const modalEmail = document.getElementById('modal-email');
-        if (modalEmail) modalEmail.textContent = '📧 Email: 12345@gmail.com';
-      });
-
-
+surrenderBtn.addEventListener('click', () => {
+    surrenderBtn.innerHTML = "📧 Email: 12345@gmail.com<br>📱 Phone: 123<br>📍 Based in: Earth";
+});
 </script>
+
+
+
+
+
+
 
 
 
