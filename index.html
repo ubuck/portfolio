@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saitama | Hero Portfolio</title>
+  <title>Mary Lubeck | Student Portfolio</title>
   <style>
     /* ===== MODERN SAITAMA PORTFOLIO STYLES ===== */
     :root {
-      --bg: #f9f9fb;
+      --bg: #3b3bbc;
       --text: #2d2b3a;
       --accent: #ff4757;
       --card-bg: #ffffff;
@@ -30,7 +33,7 @@
     header {
       text-align: center;
       padding: 2rem 1rem;
-      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      background: linear-gradient(135deg, #fcff9a 0%, #fad0c4 100%);
       color: white;
     }
 
@@ -202,18 +205,107 @@
     footer {
       text-align: center;
       padding: 1.5rem;
-      color: #777;
+      color: #eff1f4;
       font-size: 0.9rem;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #a6e321;
       margin-top: 2rem;
     }
   </style>
 
+<style>
+    #contactBtn {
+        position: absolute;
+        left: 1300px;
+        top: 700px;
+        padding: 10px 20px;
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        #surrender-btn {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      padding: 10px 14px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none; /* start hidden */
+      z-index: 9999;
+    }
+
+
+
+</style>
+
+
+
+
+
+</head>
+<body>
+
+
+
+<button id="contactBtn">Contact Me (Real)</button>
+<button id="surrenderBtn">Surrender</button>
+
+<script>
+const btn = document.getElementById("contactBtn");
+const safeDistance = 120;   // how close mouse needs to be to trigger movement
+const speed = 60;           // how far the button jumps away
+
+document.addEventListener("mousemove", (e) => {
+
+    const rect = btn.getBoundingClientRect();
+    const btnX = rect.left + rect.width / 2;
+    const btnY = rect.top + rect.height / 2;
+
+    const dx = e.clientX - btnX;
+    const dy = e.clientY - btnY;
+    const distance = Math.hypot(dx, dy);
+
+    if (distance < safeDistance) {
+        let newLeft = rect.left - Math.sign(dx) * speed;
+        let newTop  = rect.top  - Math.sign(dy) * speed;
+
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+
+        // TELEPORT AT EDGES
+        if (newLeft < 0) newLeft = w - rect.width;
+        if (newLeft + rect.width > w) newLeft = 0;
+        if (newTop < 0) newTop = h - rect.height;
+        if (newTop + rect.height > h) newTop = 0;
+
+        btn.style.left = newLeft + "px";
+        btn.style.top = newTop + "px";
+    }
+});
+
+      surrenderBtn.addEventListener('click', () => {
+        // Replace surrender button text with email (or show modal)
+        surrenderBtn.textContent = 'Email: 57443@shenzhen.qsi.org';
+        // Also set modal email so both places match (optional)
+        const modalEmail = document.getElementById('modal-email');
+        if (modalEmail) modalEmail.textContent = '📧 Email: 12345@gmail.com';
+      });
+
+
+</script>
+
+
+
 </head>
 <body>
   <header>
-    <h1>Saitama</h1>
-    <p>The Caped Baldy — Hero for Fun</p>
+    <h1>Mary Lubeck</h1>
+    <p>QSI S2 Student</p>
   </header>
 
   <main>
@@ -224,18 +316,21 @@
       </div>
       <div class="info">
         <h2>About Me</h2>
-        <p>I train every day: 100 push-ups, 100 sit-ups, 100 squats, and a 10km run. And I always end with... <strong>one punch!</strong></p>
+        <p>I am super <strong> chill!!</strong></p>
 
-        <h3>My Powers</h3>
+        <h3>My Strengths</h3>
         <ul>
-          <li>💪 Infinite Strength</li>
-          <li>⚡ Speed & Reflexes</li>
-          <li>😎 Baldness (Intimidation Level: MAX)</li>
-          <li>🛒 Grocery Sale Radar</li>
+          <li>💤 Sleep 24 hours</li>
+          <li>🥤 Drink 6 cans coke per day</li>
+          <li>🎮 Play games 72 hours in a row</li>
+          <li>🍕 Delicious food Radar</li>
         </ul>
-        <button id="contact-btn">📧 Contact Me</button>
+        <button id="contact-btn">📧 Contact Me (Fake)</button>
+
 
       
+
+        
       </div>
     </div>
   </main>
@@ -245,9 +340,9 @@
     <div class="modal-content">
       <span id="close-modal">&times;</span>
       <h2>Get in Touch</h2>
-      <p>📧 Email: saitama@hero.org</p>
-      <p>📱 Hero Hotline: +81-XXX-XXXX</p>
-      <p>📍 Based in: City Z, Japan</p>
+      <p>📧 Email: 67676767@gmail</p>
+      <p>📱 Phone number: +67-676-7676</p>
+      <p>📍 Based in: Pyongyang, North Korea</p>
     </div>
   </div>
 

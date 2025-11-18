@@ -1,5 +1,5 @@
 // Require images so webpack knows to include them
-const saitama1 = require('../public/saitama1.png');
+const saitama1 = require('../public/p1.jpg');
 const saitama2 = require('../public/saitama2.png');
 const saitama3 = require('../public/saitama3.png');
 
@@ -68,3 +68,4 @@ window.addEventListener('click', (e) => {
     modal.style.display = 'none';
   }
 });
+
